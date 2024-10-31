@@ -1,25 +1,6 @@
 name: First Workflow
 
 on:
-  - push
-
-jobs: 
-    first_job:
-        name: my-job-1
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Code
-              uses: actions/checkout@v4
-
-            - name: List and Read files
-              run: |
-                echo "My first GitHub Actions Job"
-                ls -1
-                cat dockerfile 
-
-                name: Notify Slack on Success and Failure
-
-on:
   push:
     branches:
       - main
@@ -27,26 +8,34 @@ on:
     branches:
       - main
 
-jobs:
+jobs: 
   build:
+    name: my-job-1
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      # Your other steps here
+      - name: List and Read files
+        run: |
+          echo "My first GitHub Actions Job"
+          ls -1
+          cat dockerfile
 
+      # Notify Slack on success
       - name: Notify Slack on Success
         if: success()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"✅ Job completed successfully!"}' $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"✅ Job completed successfully!"}' $SLACK_WEBHOOK_URL
 
+      # Notify Slack on failure
       - name: Notify Slack on Failure
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"❌ Job failed. Check the logs for details."}' $SLACK_WEBHOOK_URL
-
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"❌ Job failed. Check the logs for details."}' $SLACK_WEBHOOK_URL
