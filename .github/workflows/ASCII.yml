@@ -22,7 +22,7 @@ jobs:
               run: grep -i "dragon" dragon.txt
 
             - name: Read File
-              run: cat dockerfile
+              run: cat myfile
 
             - name: List Repo files 
               run: ls -ltra
