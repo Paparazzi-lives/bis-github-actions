@@ -5,7 +5,7 @@ on:
 
 jobs: 
     first_job:
-        name:  First Job
+        name:  my-new-job
 
         runs-on: ubuntu-latest
         steps:
