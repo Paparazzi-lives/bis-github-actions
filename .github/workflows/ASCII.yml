@@ -4,7 +4,9 @@ on:
   - push
 
 jobs: 
-    first_job: 
+    first_job:
+        name:  First Job
+
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
