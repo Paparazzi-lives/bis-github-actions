@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Your other steps here
+      #Comunnicate the outcome to the user via slack channel.
 
       - name: Notify Slack on Success
         if: success()
