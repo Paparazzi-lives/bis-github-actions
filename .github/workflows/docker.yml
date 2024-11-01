@@ -12,6 +12,9 @@ jobs:
 
     - name: Docker Build 
       run: docker build -t docker.io/efotsowoe/resume-app:latest .
+    
+    - name: List Docker images
+      run: docker images -a
 
     - name: Docker Login
       run: docker login --username=efotsowoe --password=ricewater!!233
@@ -23,6 +26,8 @@ jobs:
     needs: docker_build
     runs-on: ubuntu-latest 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
       - name: Docker Login
         run: docker login --username=efotsowoe --password=ricewater!!233
       - name: Docker Run
