@@ -4,6 +4,9 @@ on:
   push:
     branches: 
       - demo
+    paths:
+      - ascii-script.sh
+      - Dockerfile
 
 env:
     CONTAINER_REGISTRY: docker.io
