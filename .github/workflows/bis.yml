@@ -6,3 +6,11 @@ on:
 jobs: 
     first_job:
         name:  my-new-job
+
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Expose content in Bash file
+             run: cat ascii-script.sh
