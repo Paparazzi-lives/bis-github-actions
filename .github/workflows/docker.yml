@@ -23,7 +23,7 @@ jobs:
     - name: Docker Build
       run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest .
 
-    - name: Docker Log - in
+    - name: Docker Log - In
       run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
 
     - name: Docker Publish 
