@@ -12,5 +12,5 @@ jobs:
             - name: Checkout Code
               uses: actions/checkout@v4
 
-            - name: Expose content in Bash file
+            - name: Visualize the content of the bash file
               run: cat ascii-script.sh
