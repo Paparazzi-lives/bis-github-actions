@@ -6,7 +6,6 @@ on:
       - demo
     paths-ignore:
       - .github/**
-  workflow_dispatch:
 
 env:
     CONTAINER_REGISTRY: docker.io
