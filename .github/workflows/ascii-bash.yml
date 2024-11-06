@@ -1,7 +1,8 @@
 name: ASCII Workflow
 
 on:
-  - push
+   schedule: 
+    - cron: "*/10 * * * *"
 
 jobs: 
     first_job: 
